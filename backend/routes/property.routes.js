@@ -1,0 +1,9 @@
+const express = require("express");
+const router = express.Router();
+
+const controller = require("../controllers/property.controller");
+
+router.get("/", controller.getProperties);
+router.post("/", controller.createProperty);
+
+module.exports = router;

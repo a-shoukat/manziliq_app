@@ -1,0 +1,235 @@
+manziliq_app/
+│
+├── frontend/                          # Flutter App
+│   ├── lib/
+│   │   ├── main.dart
+│   │   ├── app.dart                   # GoRouter setup, theme
+│   │   │
+│   │   ├── core/
+│   │   │   ├── constants/
+│   │   │   │   ├── app_colors.dart
+│   │   │   │   ├── app_strings.dart
+│   │   │   │   └── app_routes.dart
+│   │   │   ├── theme/
+│   │   │   │   └── app_theme.dart
+│   │   │   ├── utils/
+│   │   │   │   ├── validators.dart
+│   │   │   │   ├── formatters.dart    # PKR, Marla/Kanal
+│   │   │   │   └── helpers.dart
+│   │   │   └── services/
+│   │   │       ├── supabase_service.dart
+│   │   │       ├── storage_service.dart
+│   │   │       └── notification_service.dart
+│   │   │
+│   │   ├── models/
+│   │   │   ├── user_model.dart
+│   │   │   ├── society_model.dart
+│   │   │   ├── plot_model.dart
+│   │   │   ├── dealer_model.dart
+│   │   │   ├── lot_model.dart
+│   │   │   ├── booking_model.dart
+│   │   │   ├── payment_model.dart
+│   │   │   └── document_model.dart
+│   │   │
+│   │   ├── providers/                 # Riverpod / Provider
+│   │   │   ├── auth_provider.dart
+│   │   │   ├── society_provider.dart
+│   │   │   ├── plot_provider.dart
+│   │   │   ├── booking_provider.dart
+│   │   │   └── payment_provider.dart
+│   │   │
+│   │   ├── auth/                      # Module 1
+│   │   │   ├── screens/
+│   │   │   │   ├── splash_screen.dart
+│   │   │   │   ├── login_screen.dart
+│   │   │   │   ├── register_screen.dart
+│   │   │   │   ├── otp_screen.dart
+│   │   │   │   └── pending_approval_screen.dart
+│   │   │   ├── widgets/
+│   │   │   │   └── role_selector_widget.dart
+│   │   │   └── services/
+│   │   │       └── auth_service.dart
+│   │   │
+│   │   ├── admin/                     # Admin Portal
+│   │   │   ├── screens/
+│   │   │   │   ├── dashboard_screen.dart
+│   │   │   │   ├── user_approval_screen.dart
+│   │   │   │   ├── disputes_screen.dart
+│   │   │   │   └── analytics_screen.dart
+│   │   │   ├── widgets/
+│   │   │   └── services/
+│   │   │       └── admin_service.dart
+│   │   │
+│   │   ├── society/                   # Module 2 — Society Portal
+│   │   │   ├── screens/
+│   │   │   │   ├── society_dashboard.dart
+│   │   │   │   ├── plot_inventory_screen.dart
+│   │   │   │   ├── plot_upload_screen.dart  # CSV/manual
+│   │   │   │   ├── dealer_management_screen.dart
+│   │   │   │   ├── booking_approvals_screen.dart
+│   │   │   │   └── payment_config_screen.dart
+│   │   │   ├── widgets/
+│   │   │   │   ├── plot_card_widget.dart
+│   │   │   │   └── block_filter_widget.dart
+│   │   │   └── services/
+│   │   │       └── society_service.dart
+│   │   │
+│   │   ├── maps/                      # Module 3 — Dual Map
+│   │   │   ├── screens/
+│   │   │   │   ├── google_map_screen.dart
+│   │   │   │   └── svg_plot_map_screen.dart
+│   │   │   ├── widgets/
+│   │   │   │   ├── plot_status_legend.dart
+│   │   │   │   └── plot_info_popup.dart
+│   │   │   └── services/
+│   │   │       └── map_service.dart
+│   │   │
+│   │   ├── dealer/                    # Module 4 — Dealer Portal
+│   │   │   ├── screens/
+│   │   │   │   ├── dealer_dashboard.dart
+│   │   │   │   ├── lot_management_screen.dart
+│   │   │   │   ├── deal_pipeline_screen.dart  # 6 stages
+│   │   │   │   └── commission_screen.dart
+│   │   │   ├── widgets/
+│   │   │   │   ├── deal_stage_card.dart
+│   │   │   │   └── lot_badge_widget.dart
+│   │   │   └── services/
+│   │   │       └── dealer_service.dart
+│   │   │
+│   │   ├── customer/                  # Module 5 — Customer Portal
+│   │   │   ├── screens/
+│   │   │   │   ├── customer_dashboard.dart
+│   │   │   │   ├── property_search_screen.dart
+│   │   │   │   ├── plot_detail_screen.dart
+│   │   │   │   ├── compare_plots_screen.dart  # 3-plot compare
+│   │   │   │   └── saved_properties_screen.dart
+│   │   │   ├── widgets/
+│   │   │   │   ├── property_card_widget.dart
+│   │   │   │   ├── search_filter_widget.dart
+│   │   │   │   └── compare_card_widget.dart
+│   │   │   └── services/
+│   │   │       └── search_service.dart
+│   │   │
+│   │   ├── booking/                   # Module 6 — Booking & Pipeline
+│   │   │   ├── screens/
+│   │   │   │   ├── booking_form_screen.dart
+│   │   │   │   ├── booking_confirmation_screen.dart
+│   │   │   │   ├── deal_stages_screen.dart
+│   │   │   │   └── site_visit_screen.dart
+│   │   │   ├── widgets/
+│   │   │   │   └── pipeline_stepper_widget.dart
+│   │   │   └── services/
+│   │   │       └── booking_service.dart
+│   │   │
+│   │   ├── payments/                  # Module 7 — Payments
+│   │   │   ├── screens/
+│   │   │   │   ├── payment_screen.dart
+│   │   │   │   ├── installment_plan_screen.dart
+│   │   │   │   ├── payment_history_screen.dart
+│   │   │   │   └── receipt_screen.dart
+│   │   │   ├── widgets/
+│   │   │   │   ├── installment_card.dart
+│   │   │   │   └── payment_method_selector.dart
+│   │   │   └── services/
+│   │   │       └── payment_service.dart
+│   │   │
+│   │   ├── documents/                 # Module 8 — Legal Docs
+│   │   │   ├── screens/
+│   │   │   │   ├── document_locker_screen.dart
+│   │   │   │   └── document_viewer_screen.dart
+│   │   │   ├── widgets/
+│   │   │   │   └── document_tile_widget.dart
+│   │   │   └── services/
+│   │   │       └── document_service.dart
+│   │   │
+│   │   └── notifications/             # Module 9
+│   │       ├── screens/
+│   │       │   └── notification_inbox_screen.dart
+│   │       ├── widgets/
+│   │       │   └── notification_tile.dart
+│   │       └── services/
+│   │           └── fcm_service.dart
+│   │
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── icons/
+│   │   ├── fonts/
+│   │   └── svg/                       # SVG plot map templates
+│   │
+│   ├── test/
+│   ├── pubspec.yaml
+│   └── .env                           # Supabase URL + anon key
+│
+├── backend/                           # Node.js + Express
+│   ├── src/
+│   │   ├── config/
+│   │   │   ├── supabase.js
+│   │   │   ├── firebase.js
+│   │   │   └── env.js
+│   │   │
+│   │   ├── middleware/
+│   │   │   ├── auth.middleware.js     # JWT verify
+│   │   │   ├── role.middleware.js     # RBAC
+│   │   │   └── upload.middleware.js   # Multer
+│   │   │
+│   │   ├── modules/
+│   │   │   ├── auth/
+│   │   │   │   ├── auth.routes.js
+│   │   │   │   ├── auth.controller.js
+│   │   │   │   └── auth.service.js
+│   │   │   ├── society/
+│   │   │   │   ├── society.routes.js
+│   │   │   │   ├── society.controller.js
+│   │   │   │   └── society.service.js
+│   │   │   ├── plots/
+│   │   │   │   ├── plots.routes.js
+│   │   │   │   ├── plots.controller.js
+│   │   │   │   └── plots.service.js
+│   │   │   ├── dealers/
+│   │   │   ├── lots/
+│   │   │   ├── bookings/
+│   │   │   ├── payments/
+│   │   │   ├── documents/
+│   │   │   └── notifications/
+│   │   │
+│   │   ├── utils/
+│   │   │   ├── pdf.generator.js       # pdf-lib templates
+│   │   │   ├── sms.service.js         # Twilio/Jazz
+│   │   │   ├── email.service.js       # SendGrid
+│   │   │   └── installment.calculator.js
+│   │   │
+│   │   └── app.js
+│   │
+│   ├── server.js
+│   ├── package.json
+│   └── .env
+│
+├── flask-ai/                          # Python AI — Price Prediction
+│   ├── app.py
+│   ├── model/
+│   │   ├── train.py
+│   │   └── price_model.pkl
+│   ├── routes/
+│   │   └── predict.py
+│   ├── requirements.txt
+│   └── .env
+│
+├── database/                          # Supabase SQL schemas
+│   ├── schema/
+│   │   ├── 01_users.sql
+│   │   ├── 02_societies.sql
+│   │   ├── 03_plots.sql
+│   │   ├── 04_lots.sql
+│   │   ├── 05_bookings.sql
+│   │   ├── 06_payments.sql
+│   │   ├── 07_documents.sql
+│   │   └── 08_notifications.sql
+│   ├── rls/                           # Row Level Security policies
+│   │   └── policies.sql
+│   └── seed/
+│       └── seed_data.sql
+│
+└── docs/
+    ├── FYP_Proposal.docx
+    ├── API_Docs.md
+    └── ERD.png
