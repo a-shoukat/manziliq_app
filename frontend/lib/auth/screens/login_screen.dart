@@ -7,6 +7,7 @@ import '../../core/constants/app_routes.dart';
 import '../../core/constants/app_strings.dart';
 import '../../models/user_model.dart';
 import '../../providers/auth_provider.dart';
+import '../../shared/widgets/animated_entrance.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -76,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
             constraints: const BoxConstraints(maxWidth: 420),
             child: Form(
               key: _formKey,
-              child: Column(
+              child: StaggeredColumn(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
